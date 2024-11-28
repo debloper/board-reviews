@@ -29,10 +29,13 @@ This is perhaps due to multilateral issues involving OpenGL, FFMPEG, V4L2 etc
 ### Preinstalled FFMPEG doesn't support RKMPP
 - So far no luck trying to build [ffmpeg-rockchip](https://github.com/nyanmisaka/ffmpeg-rockchip) from scratch
 - However, [Jellyfin's FFMPEG](https://github.com/jellyfin/jellyfin-ffmpeg) uses hardware transcoder just fine
+- Although running `jellyfin-ffmpeg` prebuilt release binary doesn't work
+- The binaries installed as part of Jellyfin installation works properly instead
 
 ### No RKNPU support out of the box
 - RKNN Toolkit installation is not the most complicated thing, but it should come preinstalled
-- The `/userdata` directory is there with some remnants of Vaaman's image (I'm guessing) - it can be better utilized as ready to run demos
+- There are a ton on outdated & obsolete information for setting up RKNPU.
+- However, [this ez install script](https://github.com/Pelochus/ezrknn-toolkit2/blob/master/install.sh) is most comprehensive of them all.
 
 ### The power rail design could have been better
 - The VIN (USB PD negotiated raw input power) is passed through as 12V bus - even if the PD negotiation failed
@@ -63,3 +66,4 @@ This is perhaps due to multilateral issues involving OpenGL, FFMPEG, V4L2 etc
 - The board totally works with a 5V power supply (i.e. fallback if 12V PD negotiation fails)
   - It even seems to runs cooler with 5V supply (~45-50°C) than 12V supply (~60-70°C)
   - 12V only seems to be relevant for the PCIe peripherals (FPC connectors)
+- You can [put the cores on performance mode](https://askubuntu.com/a/1406529) to go the extra mile in benchmarks
