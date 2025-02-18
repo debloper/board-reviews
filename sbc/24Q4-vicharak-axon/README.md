@@ -5,6 +5,10 @@
 ## Challenges
 
 ### The GPU driver fiasco
+
+> [!TIP]  
+> Use the new Kernel 6.1 based Ubuntu 24.04 [beta image](https://downloads.vicharak.in/vicharak-axon/beta-images/V1.0_vicharak_axon_6.1-ubuntu-24.04-emmc-beta.tar.gz). It's quite stable and performant; and the GPU driver is working quite well.
+
 The difference between the SD card image and eMMC images create a weird situation
 - SD Card image uses llvmpipe
   - which allows most applications to work (e.g. VLC, OBS & media players), but without hardware accelerations
@@ -60,7 +64,8 @@ This is perhaps due to multilateral issues involving OpenGL, FFMPEG, V4L2 etc
 ## Tips
 
 - Boot from SD card & take a full backup of the eMMC before messing with it.
-  - It's easier to un-screw-up that way, than needing to use `maskrom` mode
+  - It's easier to un-screw-up that way, than needing to use `maskrom` 
+  - Make sure not to overwrite the first 2 very small eMMC partitions. If you mess them up, you WILL have to use maskrom mode.
   - [Download prebuilt images](https://downloads.vicharak.in/vicharak-axon/)
   - SD Card has boot priority
 - The board totally works with a 5V power supply (i.e. fallback if 12V PD negotiation fails)
